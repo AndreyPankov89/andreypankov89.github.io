@@ -1,0 +1,76 @@
+<<<<<<< HEAD
+.icon
+{
+    border-radius: 50%;
+    background-color: #ffff73;
+    line-height: 100px;
+    font-size: 30px;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+
+.box
+{
+    height: 100px;
+border: 2px solid #000;
+}
+
+.inbox
+{
+    background-color: green;
+    height: 50px;
+    border: 1px solid #ff4554;
+}
+
+.menu
+{
+    background-color: black;
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: auto;
+    text-align: center;
+}
+
+a.menu_item
+{
+    display: inline-block;
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 40px;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-left: 1px;
+    border-right: 1px;
+    border-color: #fff;
+    border-style: solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fff;
+    
+}
+
+.content
+{
+    
+    margin-top: 40px;
+    
+}
+
+.popup
+{
+    height: 400px;
+    width: 300px;
+    position: fixed;
+    box-sizing: padding-box;
+    left: 50%;
+    top: 50%;
+    border: 2px solid gray;
+    padding: 20px 30px;
+    margin-left: -150px;
+    margin-top: -200px;
+}
