@@ -27,12 +27,12 @@ a:focus {
   width: 150px;
   border-width: 4px;
   border-radius: 2px;
-  border-color: #25182d;
+  border-color: #666666;
   border-style: solid;
   text-align: center;
   font-size: 37px;
   font-weight: 600;
-  color: #170f1c;
+  color: #4d4d4d;
   text-decoration: none;
   box-sizing: border-box;
   line-height: 46px;
@@ -48,7 +48,7 @@ a:focus {
 .main_content {
   margin-top: 5%;
   text-align: center;
-  color: #170f1c;
+  color: #666666;
 }
 .main_content h1 {
   font-size: 50px;
@@ -64,10 +64,8 @@ a:focus {
   margin-top: 20px;
 }
 .main_feedback_card {
-  position: relative;
   box-sizing: border-box;
-  left: 0;
-  bottom: 0;
+  margin-top: 3%;
   height: 388px;
   background-color: #ffffff;
   border-radius: 2px;
@@ -87,14 +85,14 @@ a:focus {
   width: 100%;
   display: block;
   border-style: none;
-  border-bottom: solid 1px #170f1c;
+  border-bottom: solid 1px #666666;
   height: 55px;
   margin-bottom: 15px;
 }
 .main_feedback_card #send_msg textarea {
   width: 100%;
   border-style: none;
-  border-bottom: solid 1px #170f1c;
+  border-bottom: solid 1px #666666;
   margin-bottom: 15px;
 }
 .main_feedback_card #send_msg button {
@@ -110,13 +108,16 @@ a:focus {
   text-align: center;
   margin-left: 29px;
 }
+.form {
+  position: relative;
+}
 .burger_menu {
   position: absolute;
   top: 50%;
   right: 0;
   height: 4px;
   width: 34px;
-  background-color: #25182d;
+  background-color: #737373;
   -webkit-transform: translateY(-1px);
   -ms-transform: translateY(-1px);
   -o-transform: translateY(-1px);
@@ -133,7 +134,7 @@ a:focus {
   right: 0;
   height: 4px;
   width: 34px;
-  background-color: #25182d;
+  background-color: #737373;
   -webkit-transform: translateY(-10px);
   -ms-transform: translateY(-10px);
   -o-transform: translateY(-10px);
@@ -151,7 +152,7 @@ a:focus {
   right: 0;
   height: 4px;
   width: 34px;
-  background-color: #25182d;
+  background-color: #737373;
   -webkit-transform: translateY(6px);
   -ms-transform: translateY(6px);
   -o-transform: translateY(6px);
