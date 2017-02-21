@@ -255,13 +255,17 @@ section p {
   width: inherit;
 }
 .galery_card:hover .galery_card_desc {
-  visibility: visible;
+  opacity: 1;
+  -webkit-transform: all 0.2sec;
+  -ms-transform: all 0.2sec;
+  -o-transform: all 0.2sec;
+  transform: all 0.2sec;
 }
 .galery_card_desc {
   position: absolute;
   top: 0;
   left: 0;
-  visibility: hidden;
+  opacity: 0;
   background-color: rgba(95, 95, 95, 0.9);
   height: 100%;
   width: inherit;
