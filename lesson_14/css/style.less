@@ -31,7 +31,6 @@ input, textarea, button
 }
 
 
-
 a
 {
     &:hover
@@ -227,8 +226,8 @@ a
 
 section
 {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
     text-align: center;
     & h2
     {
@@ -383,7 +382,7 @@ section
                 background-color: @akcent_color;
                 height: 60px;
                 line-height: 58px;
-                font-size: 30px;
+                font-size: 15px;
                 width: 50%;
                 border: none;
             }
@@ -394,4 +393,80 @@ section
 #galery
 {
     background-color: @bgcolor;
+}
+
+
+
+
+
+.service
+{
+    &_content
+    {
+        margin-top: 15px;
+        color: @Main_color;
+        text-align: left;
+        h4
+        {
+            font-size: 30px;
+            font-weight: 400;
+        }
+        
+        p
+        {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 25px;
+        }
+        
+        &_line
+        {
+            display: block;
+            background-color: @akcent_color;
+            height: 3px;
+            width: 50px;
+            margin: 20px 0;
+        }
+    }
+    
+    &_btn
+    {
+        border: solid 1px lighten(@Main_color,50%);
+        box-shadow: 0px 11px 20px 0px rgba(20, 20, 21, 0.07);
+        padding: 15px 55px;
+        font-size: 16px;
+        color: @Main_color;
+        border-radius: 50px;
+        background-color: @white;
+        margin-top: 30px;
+        & span
+        {
+            font-size: 20px;
+        }
+    }
+}
+
+#faq
+{
+    background-color: @bgcolor;
+}
+
+
+.panel
+{
+    text-align: left;
+    &-heading
+    {
+        background-color: darken(@bgcolor,10%);
+    }
+    
+    &-title
+    {
+        color: @Main_color;
+        
+        span
+        {
+            color: @akcent_color;
+        }
+    }
 }

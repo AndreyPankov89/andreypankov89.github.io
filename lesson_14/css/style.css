@@ -171,8 +171,8 @@ a:focus {
   content: '';
 }
 section {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   text-align: center;
 }
 section h2 {
@@ -287,10 +287,59 @@ section p {
   background-color: #ff6666;
   height: 60px;
   line-height: 58px;
-  font-size: 30px;
+  font-size: 15px;
   width: 50%;
   border: none;
 }
 #galery {
   background-color: #f5f5f5;
+}
+.service_content {
+  margin-top: 15px;
+  color: #666666;
+  text-align: left;
+}
+.service_content h4 {
+  font-size: 30px;
+  font-weight: 400;
+}
+.service_content p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+}
+.service_content_line {
+  display: block;
+  background-color: #ff6666;
+  height: 3px;
+  width: 50px;
+  margin: 20px 0;
+}
+.service_btn {
+  border: solid 1px #e6e6e6;
+  box-shadow: 0px 11px 20px 0px rgba(20, 20, 21, 0.07);
+  padding: 15px 55px;
+  font-size: 16px;
+  color: #666666;
+  border-radius: 50px;
+  background-color: #ffffff;
+  margin-top: 30px;
+}
+.service_btn span {
+  font-size: 20px;
+}
+#faq {
+  background-color: #f5f5f5;
+}
+.panel {
+  text-align: left;
+}
+.panel-heading {
+  background-color: #dcdcdc;
+}
+.panel-title {
+  color: #666666;
+}
+.panel-title span {
+  color: #ff6666;
 }
