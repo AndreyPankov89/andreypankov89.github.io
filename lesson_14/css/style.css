@@ -297,6 +297,9 @@ section p {
 #service .nav-tabs {
   border-style: none;
 }
+#service .nav-tabs li {
+  border-bottom: solid 1px #aeaeae;
+}
 #service li {
   margin-top: 10px;
 }
