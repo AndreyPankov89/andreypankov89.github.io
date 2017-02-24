@@ -192,6 +192,7 @@ section p {
 .process_card {
   padding: 30px;
   color: #ffffff;
+  height: 260px;
 }
 .process_card h4 {
   font-size: 20px;
@@ -209,6 +210,16 @@ section p {
 .process_card:hover {
   box-shadow: 0px 0px 35px 0px rgba(20, 20, 21, 0.21);
 }
+.process_card:hover .process_card_icon {
+  color: #ff6666;
+  font-size: 55px;
+}
+.process_card:hover .fa-camera-retro {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
 .process_btn {
   height: 70px;
   width: 80%;
@@ -223,6 +234,10 @@ section p {
 }
 .process_btn span {
   font-size: 20px;
+  border: none;
+}
+.process_btn:hover {
+  background-color: #ff6666;
 }
 .tomi {
   background-color: #4eb2f7;
@@ -419,4 +434,26 @@ section p {
   width: 15px;
   background-color: #ff6666;
   color: transparent;
+}
+.modal-header h4 {
+  color: #666666;
+  font-size: 16px;
+  text-align: center;
+}
+.modal-header h4 span {
+  color: #ff6666;
+}
+.modal-header button:hover {
+  columns: #ff6666;
+}
+.modal-footer button {
+  background-color: #ff6666;
+  color: #ffffff;
+}
+.modal-body {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.modal-lg .modal-body {
+  min-height: auto;
 }

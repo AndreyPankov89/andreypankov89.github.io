@@ -257,6 +257,7 @@ section
     {
         padding: 30px;
         color: @white;
+        height: 260px;
         & h4
         {
             font-size: 20px;
@@ -277,7 +278,21 @@ section
         }
         &:hover
         {
-             box-shadow: 0px 0px 35px 0px rgba(20, 20, 21, 0.21);;
+            box-shadow: 0px 0px 35px 0px rgba(20, 20, 21, 0.21);;
+            .process_card_icon
+            {
+                color: @akcent_color;
+                font-size: 55px;
+            }
+            
+
+            .fa-camera-retro
+            {
+                -webkit-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
         }
     }
     &_btn
@@ -295,6 +310,12 @@ section
         & span
         {
             font-size: 20px;
+            border: none;
+        }
+        
+        &:hover
+        {
+            background-color: @akcent_color;
         }
     }
 }
@@ -589,15 +610,49 @@ section
 }
 
 
-
-
-
-
-
-
-
-
-
+.modal
+{
+    &-header
+    {
+        h4
+        {
+            color: @Main_color;
+            font-size: 16px;
+            text-align: center;
+            span
+            {
+                color:@akcent_color;
+            }
+        }
+        
+        button:hover
+        {
+            columns: @akcent_color;
+        }
+    }
+    
+    &-footer
+    {
+        button
+        {
+            background-color: @akcent_color;
+            color: @white;
+        }
+    }
+    &-body
+    {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    &-lg
+    {
+        .modal-body
+        {
+            min-height: auto;
+        }
+    }
+}
 
 
 
