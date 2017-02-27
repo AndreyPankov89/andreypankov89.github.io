@@ -10,6 +10,16 @@
 @koire: #817eff;
 @lara:  #f74770;
 @gray: #aeaeae;
+
+/*Screen sizes*/
+@screen-xs-max: 767px;
+@screen-sm-min: 768px;
+@screen-sm-max: 991px;
+@screen-md-min: 992px;
+@screen-md-max: 1199px;
+@screen-lg-min: 1200px;
+
+
 body
 {
     font-family: 'Open Sans' , sans-serif;
@@ -361,6 +371,8 @@ section
         /* height: inherit; */
         width: 100%;
         position: relative;
+        margin-top: 15px;
+        margin-bottom: 15px;
         & img
         {
             width: inherit;
@@ -424,7 +436,10 @@ section
     .nav-tabs
     {
         border-style: none;
-        li{border-bottom: solid 1px @gray;}
+        li
+        { 
+            border-bottom: solid 1px @gray;
+        }
     }
  
     li
@@ -656,7 +671,101 @@ section
 
 
 
-
+@media (max-width: @screen-xs-max) 
+{ 
+    .main
+    {
+        &_content
+        {
+            h1{font-size: 24px;}
+            
+            p{font-size: 14px;}
+        }
+        
+        &_feedback_card
+        {
+            margin-top: 20px;
+        }
+    }
+    
+    .section
+    {
+        &_header
+        {
+            h2
+            {
+                font-size: 25px;
+            }
+        }
+    }
+    
+    .process
+    {
+        &_card
+        {
+            margin-bottom: 80px;
+        }
+        
+        &_btn
+        {
+            bottom: 45px;
+        }
+    }
+    
+    #service
+    {
+            li
+            {
+                width: 33.3333333%;
+                
+            }
+    }
+    
+    .service
+    {
+        &_content
+        {
+            img
+            {
+                padding-top: 20px;
+            }
+        }
+    }
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) 
+{ 
+    .process
+    {
+        &_card
+        {
+            margin-bottom: 80px;
+        }
+        
+        &_btn
+        {
+            bottom: 45px;
+        }
+    }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) 
+{
+     .process
+    {
+        &_card
+        {
+            margin-bottom: 80px;
+        }
+        
+        &_btn
+        {
+            bottom: 45px;
+        }
+    }
+}
+@media (min-width: @screen-lg-min) 
+{ 
+    
+}
 
 
 
