@@ -100,17 +100,17 @@ a:focus {
   margin-bottom: 15px;
 }
 .main_feedback_card #send_msg button {
+  display: inline-block;
   border-radius: 27px;
   border-style: none;
   background-color: #ff6666;
-  width: 238px;
+  width: 100%;
   height: 55px;
   color: #ffffff;
   font-size: 16px;
   font-weight: 400;
   line-height: 25px;
   text-align: center;
-  margin-left: 29px;
 }
 .main_feedback_card #send_msg button:hover {
   box-shadow: 0px 11px 20px 0px rgba(20, 20, 21, 0.08);
@@ -467,9 +467,6 @@ section p {
   .main_content p {
     font-size: 14px;
   }
-  .main_feedback_card {
-    margin-top: 20px;
-  }
   .section_header h2 {
     font-size: 25px;
   }
@@ -484,6 +481,9 @@ section p {
   }
   .service_content img {
     padding-top: 20px;
+  }
+  .galery_card_desc button {
+    width: 60%;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
