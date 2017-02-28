@@ -468,6 +468,23 @@
           </div>
         </div>
         
+        <div class="modal fade" id="ThanksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><span>Modern</span> Mobile Design</h4>
+              </div>
+              <div class="modal-body">
+                  <p>Сообщение успешно отправлено</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         
         
          <div class="modal fade" id="Galery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -564,5 +581,25 @@
             });
         </script>
         
+         
+                
+                 <script>
+                    $(document).ready(function() {
+                
+                    $("#send_msg").submit(function() {
+                        $.ajax({
+                            type: "POST",
+                            url: "mail.php",
+                            data: $(this).serialize()
+                        }).done(function() {
+                            $(this).find("input").val("");
+                            $("#ThanksModal").modal('show');
+                            $("#send_msg").trigger("reset");
+                        });
+                        return false;
+                    });
+                
+                });
+                </script> 
     </body>
 </html>
