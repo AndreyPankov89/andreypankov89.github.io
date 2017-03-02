@@ -19,6 +19,8 @@
 @screen-md-max: 1199px;
 @screen-lg-min: 1200px;
 
+.red-bg
+{background-color: red;}
 
 body
 {
@@ -27,6 +29,7 @@ body
 
 #main
 {
+    position: relative;
     background-color: @bgcolor;
     background-image: url(../img/main-bg.png);
     background-repeat: no-repeat;
@@ -56,8 +59,54 @@ a
     }
 }
 
+#close_menu
+{
+    position: fixed;
+    padding: 5%;
+    left: 5%;
+    font-size: 30px;
+    color: @white;
+    &:hower
+    {
+        color: lighten(@Main_color, 10%);
+        cursor: pointer;
+    }
+}
+
 .main
 {
+    &_menu
+    {
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.8);
+        color: @white;
+        font-size: 36px;
+        text-align: center;
+        display: none;
+        ul
+        {
+            margin-top: 10%;
+            line-height: 2;
+        }
+        li
+        {
+            color: @white;
+            list-style-image: none;
+            list-style-type: none;
+            
+            &:hover
+            {
+                text-decoration: none;
+                columns: @akcent_color;
+
+            }
+        }
+    }
+    
     &_header
     {
         margin-top: 5%;
@@ -96,7 +145,7 @@ a
     {
         margin-top: 3%;
         text-align: center;
-        color: @Main_color;
+        color: @white;
         
         & h1
         {
@@ -210,7 +259,7 @@ a
     right: 0;
     height: 4px;
     width: 34px;
-    background-color: lighten(@Main_color,5%);
+    background-color: @white;
     .transform_burger(-1px);
     
     &:before
@@ -219,7 +268,7 @@ a
         top: 50%;
         right: 0;
         height: 4px;width: 34px;
-        background-color: lighten(@Main_color,5%);
+        background-color: @white;
         .transform_burger(-10px);
         content: '';
     }
@@ -230,7 +279,7 @@ a
         top: 50%;
         right: 0;
         height: 4px;width: 34px;
-        background-color: lighten(@Main_color,5%);
+        background-color: @white;
         .transform_burger(6px);
         content: '';
     }
@@ -501,6 +550,7 @@ section
 #faq
 {
     background-color: @bgcolor;
+    position: relative;
 }
 
 
@@ -628,6 +678,10 @@ section
 
 .modal
 {
+    &-dialog
+    {
+        font-family: "Open Sans";
+    }
     &-header
     {
         h4
@@ -635,6 +689,7 @@ section
             color: @Main_color;
             font-size: 16px;
             text-align: center;
+            font-family: 'Open Sans';
             span
             {
                 color:@akcent_color;
@@ -659,6 +714,11 @@ section
     {
         max-height: 100vh;
         overflow-y: auto;
+        ul
+        {
+            font-size: 14px;    
+            list-style-type: none;
+        }
     }
     
     &-lg
@@ -670,8 +730,32 @@ section
     }
 }
 
+#scene
+{
+    display: block;
+    height: inherit;
+    
+}
 
-
+.paralax
+{
+    height: 900px;
+    width: 100%;
+    
+    h2
+    {
+        line-height: 400px;
+        margin-left: 300px;
+    }
+    #layer1
+    {
+        margin-left: -200px;
+    }  
+    #layer2
+    {
+        margin-left: -500px;
+    }
+}
 @media (max-width: @screen-xs-max) 
 { 
     .main
@@ -681,6 +765,14 @@ section
             h1{font-size: 24px;}
             
             p{font-size: 14px;}
+        }
+        
+        &_menu
+        {
+            ul
+            {
+                font-size: 20px;
+            }
         }
         
     }
@@ -773,3 +865,39 @@ section
 
 
 
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}

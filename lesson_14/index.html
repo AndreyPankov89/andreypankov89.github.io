@@ -24,6 +24,16 @@
     </head>
     <body>
         <header id="main" >
+          <div class="video-container">
+            <div class="filter"></div>
+            <video autoplay loop class="fillWidth">
+                <source src="video-bg/MP4/Working-Man.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+                <source src="video-bg/WEBM/Working-Man.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+            </video>
+            <div class="poster hidden">
+                <img src="video-bg/Snapshots/Working-Man.jpg" alt="">
+            </div>
+          </div>
           <div class="container wow fadeInDown" data-wow-duration="2s">
               <div class="row main_header">
                   <div class="col-xs-6">
@@ -45,9 +55,9 @@
                   <div class="col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 main_feedback_card">
                       <h4><span class="Color_select">Send</span> a message</h4>
                       <form action="" id="send_msg">
-                          <input type="text" placeholder="Your Name" name="Name">
-                          <input type="email" placeholder="Your Email" name="Email">
-                          <textarea name="message" placeholder="Your Message" rows="3"></textarea>
+                          <input type="text" id="name" placeholder="Your Name" name="Name">
+                          <input type="email" id="email" placeholder="Your Email" name="Email">
+                          <textarea name="message" id="message" placeholder="Your Message" rows="3"></textarea>
                           
                           <div class="col-xs-10 col-xs-offset-1 text-center">
                               <button type="submit">Send message &rarr;</button>
@@ -61,6 +71,17 @@
 
           </div><!--container-->
         </header>
+        
+        <div class="main_menu">
+            <span id="close_menu">&times;</span>
+            <ul>
+                <li id="menu_item-1"><a href="">Main page</a></li>
+                <li id="menu_item-2"><a href="">Portfolio</a></li>
+                <li id="menu_item-3"><a href="">Map</a></li>
+                <li id="menu_item-4"><a href="">About Us</a></li>
+                <li id="menu_item-5"><a href="">Contact</a></li>
+            </ul>
+        </div>
         
         <section id="process">
             <div class="container">
@@ -208,6 +229,7 @@
         </section>
         
         <section id="service">
+           
             <div class="container">
                 <div class="section_header wow fadeInDown">
                         <h2><span>Services</span> We Porvide</h2>
@@ -259,7 +281,17 @@
         </section>
         <!-- /#service -->
         
+        <section class="paralax visible-lg">
+            <ul id="scene">
+              <li class="layer" id="layer1" data-depth="0.50"><img src="img/sky-02.png"></li>
+              <li class="layer" id="layer2" data-depth="1.00"><img src="img/siluet-moskva.jpg"></li>
+              <li class="layer" data-depth="2.00"><h2 class="text-center"><span>Test </span>paralax</h2></li>
+            </ul>
+        </section>
+        
+        
         <section id="faq">
+                           
             <div class="container">
                 <div class="section_header wow fadeInDown">
                         <h2><span>Frequently</span> Asking Question</h2>
@@ -473,10 +505,10 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><span>Modern</span> Mobile Design</h4>
+                <h4 class="modal-title" id="myModalLabel"><span>Thanks</span></h4>
               </div>
               <div class="modal-body">
-                  <p>Сообщение успешно отправлено</p>
+                  <p>Message is send successful</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -485,7 +517,24 @@
           </div>
         </div>
         
-        
+        <div class="modal fade" id="errors" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><span>Errors</span> in form</h4>
+              </div>
+              <div class="modal-body">
+                  <ul>
+                      
+                  </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         
          <div class="modal fade" id="Galery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog " role="document">
@@ -583,23 +632,139 @@
         
          
                 
-                 <script>
-                    $(document).ready(function() {
-                
-                    $("#send_msg").submit(function() {
-                        $.ajax({
+        <script>
+            $(document).ready(function() {
+                $("#send_msg").submit(function() {
+                    $err = $("#errors").find('ul');
+                    $err.empty();
+                    $isValide = true;
+                    $name = $(this).find('#name');
+                    //debugger;
+                    console.log($name.val());
+                    if ($name.val()=="")
+                    {
+                        $isValide = false;
+                        $err.append('<li> Name is Empty</li>');
+                    }
+                    console.log(1);
+                    $email = $(this).find('#email');
+                    $rv_email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+                    if (!$rv_email.test($email.val()))
+                    {
+                        $isValide = false;                        
+                        $err.append('<li> Invalid Email</li>');
+                    }
+                    console.log(2);
+                    if ($isValide)
+                    {
+                        /*$.ajax({
                             type: "POST",
-                            url: "mail.php",
+                            url: "SendMail.php",
                             data: $(this).serialize()
                         }).done(function() {
                             $(this).find("input").val("");
                             $("#ThanksModal").modal('show');
                             $("#send_msg").trigger("reset");
                         });
-                        return false;
-                    });
-                
+                        return false;*/
+                        $("#ThanksModal").modal('show');
+                    }
+                    else
+                    {
+                        $("#errors").modal('show');    
+                    }
+                    return false;
                 });
-                </script> 
+            });
+        </script>
+        
+        <script>
+            $(document).ready(function() {
+                $('a.main_nav').click(function() {
+                    console.log('click')
+                    $('.main_menu').show(500);
+                });
+            })
+        </script>
+           
+        <script>
+            $(document).ready(function() {
+                $('#close_menu').click(function() {
+                    $('.main_menu').hide();
+                })
+            })
+        </script>
+        
+        <script>
+            //jQuery is required to run this code
+            $( document ).ready(function() {
+
+                scaleVideoContainer();
+
+                initBannerVideoSize('.video-container .poster img');
+                initBannerVideoSize('.video-container .filter');
+                initBannerVideoSize('.video-container video');
+
+                $(window).on('resize', function() {
+                    scaleVideoContainer();
+                    scaleBannerVideoSize('.video-container .poster img');
+                    scaleBannerVideoSize('.video-container .filter');
+                    scaleBannerVideoSize('.video-container video');
+                });
+
+            });
+
+            function scaleVideoContainer() {
+
+                var height = $(window).height() + 5;
+                var unitHeight = parseInt(height) + 'px';
+                $('.homepage-hero-module').css('height',unitHeight);
+
+            }
+
+            function initBannerVideoSize(element){
+
+                $(element).each(function(){
+                    $(this).data('height', $(this).height());
+                    $(this).data('width', $(this).width());
+                });
+
+                scaleBannerVideoSize(element);
+
+            }
+
+            function scaleBannerVideoSize(element){
+
+                var windowWidth = $(window).width(),
+                windowHeight = $(window).height() + 5,
+                videoWidth,
+                videoHeight;
+
+                // console.log(windowHeight);
+
+                $(element).each(function(){
+                    var videoAspectRatio = $(this).data('height')/$(this).data('width');
+
+                    $(this).width(windowWidth);
+
+                    if(windowWidth < 1000){
+                        videoHeight = windowHeight;
+                        videoWidth = videoHeight / videoAspectRatio;
+                        $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+
+                        $(this).width(videoWidth).height(videoHeight);
+                    }
+
+                    $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+
+                });
+            }            
+        </script>
+        
+        <script src="js/jquery.parallax.js"></script>
+        
+        <script>
+            $('#scene').parallax();
+        </script>
     </body>
 </html>

@@ -6,20 +6,20 @@ $mail->CharSet = 'utf-8';
 
 $name = $_POST['Name'];
 $mail_addr = $_POST['Email'];
-$mess = $_POST['Message'];
+$mess = $_POST['message'];
 
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 $mail->SMTPDebug = 2;
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.mail.ru';  // Specify main and backup SMTP servers
+$mail->Host = 'smtp3.mail.ru';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = '';                 // SMTP username
+$mail->Username = 'apan89@mail.ru';                 // SMTP username
 $mail->Password = '';                           // SMTP password
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465;                                    // TCP port to connect to
 
-$mail->setFrom($mail_addr, $name);
+$mail->setFrom('apan89@mail.ru', $name);
 $mail->addAddress('apan89@mail.ru', 'Joe User');     // Add a recipient
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
@@ -29,7 +29,8 @@ $mail->addAddress('apan89@mail.ru', 'Joe User');     // Add a recipient
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$message =  "Заявка от пользователя".htmlspecialchars($name)."<br>".htmlspecialchars($mess);
+$message =  "Заявка от пользователя ".htmlspecialchars($name)."<br>".htmlspecialchars($mess)."<br>
+Почта: ".htmlspecialchars($mail_addr);
 
 $mail->Subject = 'Заявка с сайта';
 $mail->Body    = $message;
