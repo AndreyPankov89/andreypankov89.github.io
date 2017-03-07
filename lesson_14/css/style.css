@@ -516,6 +516,7 @@ section p {
 .paralax {
   height: 900px;
   width: 100%;
+  overflow-x: hidden;
 }
 .paralax h2 {
   line-height: 400px;
