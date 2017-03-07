@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="slick/slick-theme.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -566,16 +567,47 @@
           </div>
         </div>
         
+      
+        <div id="map" style="width: 100%; height: 400px"></div>
         
         
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2113.729345640085!2d56.23157231630435!3d58.00935098121657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43e8c7267a1a365d%3A0xe9e72957fd85d4e2!2z0YPQuy4g0JvQtdC90LjQvdCwLCA2MCwg0J_QtdGA0LzRjCwg0J_QtdGA0LzRgdC60LjQuSDQutGA0LDQuSwgNjE0MDQ1!5e0!3m2!1sru!2sru!4v1488894305902" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
         
         
-        
-        
-        
-        
-        
-        
+        <!-- Настраиваем карту через JavaScript -->
+        <script type="text/javascript">
+        //создаем переменные "Карта" и "Метка"
+          ymaps.ready(init);
+          var myMap, 
+          myPlacemark;
+
+        //Инициализируем нашу карту, задав ей координаты, устанавливаем масштаб карты
+          function init(){ 
+            myMap = new ymaps.Map("map", {
+              center: [58.009647, 56.233469],
+              zoom: 16,
+            }); 
+
+        //Пишем свойства для нашей метки
+            myPlacemark = new ymaps.Placemark([58.009647, 56.233469], {
+              hintContent: 'Ленина 60, ТЦ "Колизей", 3 этаж',
+              balloonContent: ''
+            }, {
+                    // Опции.
+                    // Необходимо указать данный тип макета. Показываем что это изображение.
+                    iconLayout: 'default#image',
+                    // Своё изображение иконки метки. Указываем путь до картинки
+                    iconImageHref: 'img/map-pointer.png',
+                    // Размеры метки. 
+                    iconImageSize: [51, 53],
+                    // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
+                    iconImageOffset: [50, 35]
+                  });            
+            //Добавляем метку на карту + убираем скролл мышкой 
+            myMap.geoObjects.add(myPlacemark);  
+            myMap.behaviors.disable('scrollZoom');
+          }
+        </script>
         
         
         
@@ -596,6 +628,9 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="fotorama/fotorama.js"></script>
         <script src="js/wow.min.js"></script>
+        
+        
+        
         <script>
             new WOW().init();
         </script>
